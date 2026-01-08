@@ -50,3 +50,36 @@ The dataset contains information on:
 ---
 
 ## 📁 Project Structure
+
+---Business-Performance-and-Profitability-Analysis/
+│
+├── data/
+│ └── sales_dataset.xlsx
+│
+├── notebooks/
+│ └── profitability_analysis.ipynb
+│
+├── README.md
+
+
+## 🚀 Future Improvements
+- Add predictive sales forecasting
+- Integrate advanced statistical analysis
+- Expand dashboard with real-time data updates
+
+---
+
+## 👤 Author
+**Onojeruo Godstime**  
+BSc Industrial Mathematics (First Class)  
+Aspiring Data Analyst / Business Analyst  
+
+📧 Email: onojeruogodstime@gmail.com  
+  
+
+---
+
+## 📄 Licence
+This project is licensed under the MIT Licence.
+
+
