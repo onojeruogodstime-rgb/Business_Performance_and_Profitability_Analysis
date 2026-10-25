@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-labelledby="title desc">
+<title id="title">Business Performance and Profitability Analysis</title><desc id="desc">A modern blue and teal banner for a data analytics portfolio project.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#101f3d"/><stop offset="1" stop-color="#155e75"/></linearGradient><linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#67e8f9"/><stop offset="1" stop-color="#a7f3d0"/></linearGradient></defs>
+<rect width="1200" height="320" rx="24" fill="url(#bg)"/>
+<circle cx="1080" cy="65" r="130" fill="#ffffff" opacity=".04"/><circle cx="1140" cy="280" r="180" fill="#ffffff" opacity=".035"/>
+<g opacity=".25" stroke="#c5f6ff" stroke-width="1"><path d="M760 40V280M830 40V280M900 40V280M970 40V280M1040 40V280M1110 40V280"/><path d="M730 70H1160M730 120H1160M730 170H1160M730 220H1160M730 270H1160"/></g>
+<g transform="translate(790 68)"><rect x="0" y="126" width="48" height="86" rx="7" fill="#67e8f9" opacity=".8"/><rect x="70" y="92" width="48" height="120" rx="7" fill="#67e8f9" opacity=".9"/><rect x="140" y="53" width="48" height="159" rx="7" fill="#a7f3d0" opacity=".95"/><rect x="210" y="18" width="48" height="194" rx="7" fill="#ffffff" opacity=".9"/><path d="M8 105L94 68L164 35L235 2" fill="none" stroke="url(#line)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><g fill="#a7f3d0"><circle cx="8" cy="105" r="7"/><circle cx="94" cy="68" r="7"/><circle cx="164" cy="35" r="7"/><circle cx="235" cy="2" r="7"/></g></g>
+<text x="70" y="85" fill="#a7f3d0" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="700" letter-spacing="3">DATA ANALYTICS PORTFOLIO</text>
+<text x="70" y="143" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="38" font-weight="700">Business Performance</text>
+<text x="70" y="188" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="38" font-weight="700">&amp; Profitability Analysis</text>
+<text x="70" y="235" fill="#dbeafe" font-family="Arial,Helvetica,sans-serif" font-size="19">Exploratory analysis • KPI development • Decision support</text>
+<text x="70" y="278" fill="#a7f3d0" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700">PYTHON  |  PANDAS  |  VISUALISATION</text>
+</svg>
