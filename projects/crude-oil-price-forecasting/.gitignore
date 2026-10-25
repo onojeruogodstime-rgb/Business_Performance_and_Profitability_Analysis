@@ -1,0 +1,8 @@
+# Keep source data private unless redistribution is explicitly permitted.
+data/*.csv
+data/*.xlsx
+data/*.xls
+outputs/
+.Rhistory
+.RData
+.Rproj.user/
