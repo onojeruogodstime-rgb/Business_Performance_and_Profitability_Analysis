@@ -77,7 +77,7 @@ test <- tail(price_ts, n_test)
 arima_fit <- auto.arima(train, seasonal = TRUE, stepwise = FALSE, approximation = FALSE)
 ets_fit <- ets(train)
 
-fc_naive <- forecast(naive_fit, h = n_test)
+fc_naive <- naive(train, h = n_test)
 fc_arima <- forecast(arima_fit, h = n_test, level = c(80, 95))
 fc_ets <- forecast(ets_fit, h = n_test, level = c(80, 95))
 
