@@ -1,0 +1,2 @@
+raw_rows,excel_native_date_cells,text_date_cells,invalid_dates,missing_prices,duplicate_date_rows_aggregated,unique_daily_dates_after_aggregation,quarterly_observations_used,first_quarter,last_quarter_used,quarters_with_fewer_than_40_daily_observations,partial_2024Q3_excluded,date_policy,status
+3404,1329,2075,0,2,6,3399,59,2009Q4,2024Q2,4,True,month-first text; swap month/day in ambiguous native Excel date cells,provisional; confirm date policy and oil benchmark/source
