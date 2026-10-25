@@ -18,14 +18,14 @@ Business-oriented analysis of revenue, profit, sales volume and product-category
 ### 2. Stochastic Analysis of NHS Emergency Demand
 **Healthcare analytics · count-data modelling · stochastic regimes · forecasting**
 
-Analysis chapter reports monthly emergency activity from April 2007 to March 2026, with Poisson versus Negative Binomial modelling, Markov-switching analysis and horizon-specific forecasting evaluation. A key reported result is that regime information did not improve forecasts on the pre-specified test window. Data provenance and independent reproduction remain outstanding.
+Analysis chapter reports monthly emergency activity from April 2007 to March 2026, with Poisson versus Negative Binomial modelling, Markov-switching analysis and horizon-specific forecasting evaluation. A key reported result is that regime information did not improve forecasts on the pre-specified test window. The forecasting component has been independently reproduced on the uploaded aggregate extract with a 36-origin rolling evaluation; the count/regime models and exact official source provenance remain outstanding.
 
 [View project](projects/nhs-emergency-demand/README.md)
 
 ### 3. Crude Oil Price Forecasting
 **R · ARIMA · ETS · stationarity · forecast diagnostics**
 
-Quarterly crude-oil price comparison based on a university analysis of daily prices aggregated from Q4 2009 to Q3 2024. Reported ARIMA and ETS errors are very close, which motivates a careful, baseline-driven evaluation rather than an overconfident winner claim. Dataset reuse rights and independent reproduction remain outstanding.
+Quarterly crude-oil price comparison based on a university analysis of daily prices aggregated from Q4 2009 to Q3 2024. Reported ARIMA and ETS errors are very close, which motivates a careful, baseline-driven evaluation rather than an overconfident winner claim. A provisional workbook reproduction and holdout comparison are now committed. Mixed date storage and low-coverage quarters mean the date convention and exact oil benchmark must be confirmed before the results are considered final.
 
 [View project](projects/crude-oil-price-forecasting/README.md)
 
@@ -62,4 +62,4 @@ A concept for using aggregate care-demand signals and workforce scenarios to sup
 
 ## Current priority
 
-The strongest next step is to complete a clean reproduction pass on the three evidence-based projects: verify data provenance, run the code from a fresh environment, regenerate the tables/figures, and update each README only after the outputs agree with the reported results.
+The NHS forecasting pipeline now has reproduced metrics and data checks. The oil pipeline now has a provisional model comparison and explicit date-quality audit. Next, verify both datasets' official provenance, resolve the oil date convention/benchmark, recreate the NHS count and regime models from original code, and then rerun both projects in a clean environment.
