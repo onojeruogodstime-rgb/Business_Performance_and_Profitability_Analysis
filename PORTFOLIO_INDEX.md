@@ -1,24 +1,65 @@
 # Godstime Onojeruo | Analytics Portfolio
 
-MSc Business Analytics · BSc Industrial Mathematics (First Class) · OND Statistics (Distinction)
+**MSc Business Analytics** · **BSc Industrial Mathematics (First Class)** · **OND Statistics (Distinction)**
 
-This portfolio brings together work in business analytics, statistical forecasting, healthcare operations, energy analysis and systems thinking.
+A focused portfolio of work across business performance, statistical forecasting, healthcare analytics, energy markets and systems thinking.
 
-> **Portfolio integrity:** pages marked as plans or starter templates are not completed empirical analyses. Results will be reported only after datasets, methods and outputs have been verified.
+> **Portfolio integrity:** each project distinguishes reported academic findings from results independently reproduced in this repository. Starter templates and concepts are labelled honestly; they are not presented as deployed or validated solutions.
 
-## Projects
+## Featured projects
 
-1. **Business Performance & Profitability Analysis** — Python, pandas, NumPy, visualisation, revenue and profit KPIs. Existing notebook and dataset; README and visuals improved. [Open project](README.md)
-2. **Stochastic Analysis of NHS Emergency Demand** — aggregate NHS activity, demand variability, seasonal forecasting, model evaluation and uncertainty. Research page and starter workflow; final forecast not yet verified. [Open project](projects/nhs-emergency-demand/README.md)
-3. **Crude Oil Price Forecasting** — R, stationarity checks, ARIMA, exponential smoothing, diagnostics and prediction intervals. Starter script; final results require a verified dataset and rerun. [Open project](projects/crude-oil-price-forecasting/README.md)
-4. **Smart-Home Energy Analysis** — Python, exploratory analysis and interpretable regression. Starter workflow; dataset source and results require verification. [Open project](projects/smart-home-energy-analysis/README.md)
-5. **NHS Waiting Lists & Workforce Pressure — Systems Thinking** — causal loops, delays, stock-and-flow modelling and scenarios in Vensim PLE. Check university rules before publishing assessed materials. [Open project](projects/nhs-systems-thinking/README.md)
-6. **CareFlow AI — Care-Demand & Workforce Intelligence** — concept for aggregate demand forecasting and workforce scenario planning; not a deployed or validated product. [Open concept](projects/careflow-ai/README.md)
+### 1. Business Performance & Profitability Analysis
+**Python · pandas · NumPy · KPI analysis · data visualisation**
 
-## Professional standards
+Business-oriented analysis of revenue, profit, sales volume and product-category performance. The repository includes the original notebook, supporting dataset and portfolio visuals. The notebook and dataset should still be rerun together in a clean environment before the reported metrics are treated as independently validated.
 
-- Use properly licensed or explicitly permitted data; cite the exact source.
-- Never publish identifiable patient or service-user data, secrets, access tokens or confidential employer/university material.
-- Separate observed results from hypotheses and planned work.
-- Include setup instructions, data dictionaries, validation checks and limitations.
-- Run code from a clean environment before describing a project as reproducible.
+[View project README](README.md)
+
+### 2. Stochastic Analysis of NHS Emergency Demand
+**Healthcare analytics · count-data modelling · stochastic regimes · forecasting**
+
+Analysis chapter reports monthly emergency activity from April 2007 to March 2026, with Poisson versus Negative Binomial modelling, Markov-switching analysis and horizon-specific forecasting evaluation. A key reported result is that regime information did not improve forecasts on the pre-specified test window. Data provenance and independent reproduction remain outstanding.
+
+[View project](projects/nhs-emergency-demand/README.md)
+
+### 3. Crude Oil Price Forecasting
+**R · ARIMA · ETS · stationarity · forecast diagnostics**
+
+Quarterly crude-oil price comparison based on a university analysis of daily prices aggregated from Q4 2009 to Q3 2024. Reported ARIMA and ETS errors are very close, which motivates a careful, baseline-driven evaluation rather than an overconfident winner claim. Dataset reuse rights and independent reproduction remain outstanding.
+
+[View project](projects/crude-oil-price-forecasting/README.md)
+
+### 4. Smart-Home Energy Analysis
+**Python · exploratory analysis · interpretable modelling**
+
+A starter project for investigating energy-use patterns and building interpretable baselines. The dataset source, licence, analysis and findings must be completed before this can be described as an empirical case study.
+
+[View project](projects/smart-home-energy-analysis/README.md)
+
+### 5. The Domino Effect: NHS Systems Thinking
+**Systems thinking · SSM/CATWOE · causal loops · Vensim PLE**
+
+A systems framework linking waiting lists, workforce pressure, treatment throughput, policy response and delays. The project proposes candidate leverage points while clearly distinguishing a conceptual/simulation model from a calibrated policy model. Check academic publication permissions before sharing assessment artefacts.
+
+[View project](projects/nhs-systems-thinking/README.md)
+
+### 6. CareFlow AI — Care-Demand & Workforce Intelligence
+**Concept · healthcare operations · demand planning**
+
+A concept for using aggregate care-demand signals and workforce scenarios to support operational planning. It is not a deployed product, clinical decision tool or validated forecasting system.
+
+[View concept](projects/careflow-ai/README.md)
+
+## Engineering and evidence standards
+
+- Cite the exact dataset, provider, series definition, licence and extraction date.
+- Keep raw data out of the repository unless redistribution is explicitly permitted.
+- Make data validation, transformations and evaluation windows reproducible.
+- Compare forecasting models on chronological holdouts; do not rely on in-sample fit alone.
+- Separate measured findings, report-transcribed findings, hypotheses and planned work.
+- Record software versions and provide clear setup/run instructions.
+- Never publish patient-level data, credentials, confidential employer material or restricted academic content.
+
+## Current priority
+
+The strongest next step is to complete a clean reproduction pass on the three evidence-based projects: verify data provenance, run the code from a fresh environment, regenerate the tables/figures, and update each README only after the outputs agree with the reported results.
