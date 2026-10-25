@@ -1,0 +1,9 @@
+# Never commit patient-level or unapproved source extracts.
+data/*.csv
+data/*.xlsx
+data/*.xls
+outputs/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
