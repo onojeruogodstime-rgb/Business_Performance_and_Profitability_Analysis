@@ -1,10 +1,7 @@
 # Data directory
 
-Place a permitted monthly aggregate extract here as `nhs_emergency_demand.csv` with columns:
+Place the permitted aggregate extract as `nhs_emergency_demand.csv`. The reproducible script expects the original extract columns `CALENDAR_MONTH_END_DATE` (labels such as `MAR26`) and `APC_Emergency`.
 
-- `date`: one date per month, parseable by pandas
-- `activity`: non-negative monthly activity count for one consistently defined series
+The uploaded extract used for the current run contained 228 unique consecutive monthly records from April 2007 through March 2026. This repository does not include the raw file because its exact official source URL and reuse terms still need to be recorded.
 
-The workflow expects one row per month and will stop if it detects missing months or duplicate monthly records. If the source has multiple rows per month, aggregate only after documenting the meaning of each row and the appropriate aggregation rule.
-
-Document the exact official source/table, series label, geography, units, extraction and revision dates, source URL, and reuse terms. Do not place identifiable patient records or confidential operational data here. Raw data and generated outputs are excluded from version control by default.
+Before public release, document the official source/table, series definition, geography, units, extraction/revision date, source URL, and licence. Do not add patient-identifiable records or confidential operational data.
