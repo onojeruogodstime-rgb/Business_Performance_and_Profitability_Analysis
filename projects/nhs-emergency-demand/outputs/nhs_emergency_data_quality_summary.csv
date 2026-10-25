@@ -1,0 +1,2 @@
+observations,start_month,end_month,missing_months,duplicate_month_labels,mean_monthly_emergency_activity,minimum,minimum_month,maximum,maximum_month,train_start,train_end,test_start,test_end,evaluation,calendar_adjustment
+228,2007-04,2026-03,0,0,481908.8289473684,330244,2020-04,575744,2024-05,2007-04,2023-03,2023-04,2026-03,36 expanding-window one-step-ahead forecasts,count / days in month * 30.4375 for SARIMA
