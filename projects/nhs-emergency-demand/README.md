@@ -12,7 +12,7 @@ This project studies monthly NHS emergency activity as a time series, with a foc
 
 The analysis compares Poisson and Negative Binomial count models, two-state Markov-switching specifications, and time-series forecasting benchmarks. The results chapter reports that the Poisson model is inadequate after trend, month effects and month length are accounted for; the Negative Binomial improves fit substantially. Regime structure is supported, but its interpretation depends on the specification. Importantly, the regime-informed forecast **did not improve accuracy** over the SARIMA benchmark on the pre-specified evaluation window.
 
-These are **findings reported in the supplied analysis chapter**. The data extract, full analysis code and outputs have not yet been independently reproduced in this repository. The exact source table and reuse terms must be documented before the project is presented as fully reproducible.
+Some findings above are transcribed from the supplied results chapter. The forecasting component has now been independently run against the uploaded 228-row aggregate extract; the Poisson/Negative Binomial and Markov-switching analyses have **not** yet been recreated because their original executable code was not included. The exact official source URL and reuse terms still need to be recorded.
 
 ## Research question
 
@@ -52,13 +52,29 @@ No patient-level data should be committed. Use only public, permitted aggregate 
 6. Assess errors by forecast horizon, residual autocorrelation and interval coverage.
 7. Distinguish statistical coincidence from causal attribution; a detected regime does not establish why it occurred.
 
+## Independently reproduced forecasting results
+
+The uploaded extract was validated and the forecasting comparison was rerun with a 36-origin expanding-window, one-step-ahead evaluation. The script adjusts the SARIMA input for calendar-month length and converts predictions back to the original monthly activity scale.
+
+| Model | MAE | RMSE | MAPE | MASE |
+|---|---:|---:|---:|---:|
+| SARIMA(2,1,1)(0,1,1)[12] | 10,343.8 | 12,873.0 | 1.88% | 0.412 |
+| Seasonal naïve | 22,288.4 | 27,396.0 | 4.07% | 0.888 |
+| Last-month naïve | 22,901.1 | 28,010.3 | 4.23% | 0.912 |
+
+On this **one-step-ahead rolling-origin design**, SARIMA has the lowest error. This is not directly comparable with the chapter's separate 12-month-horizon result, where seasonal-naïve was reported as preferable. Forecast accuracy is horizon-dependent.
+
+Data checks found 228 unique consecutive months, April 2007–March 2026, with no missing months or duplicate month labels. Mean monthly APC_Emergency activity is 481,909; the minimum is 330,244 (April 2020) and the maximum is 575,744 (May 2024).
+
+Reproduce the forecasting results with `python reproduce_nhs_emergency.py` after placing the permitted source extract at `data/nhs_emergency_demand.csv`. Generated CSV tables and SVG charts are written to `outputs/`.
+
 ## Why this matters operationally
 
 For healthcare planning, a forecast is useful only when its horizon, uncertainty and failure modes are clear. The reported results caution against assuming that a more elaborate regime model will outperform a well-specified baseline. Short-term planning and annual capacity decisions may require different benchmarks.
 
 ## Reproducibility status
 
-**Status: analysis documented; independent reproduction pending.**
+**Status: forecasting component reproduced; count/regime analysis and source-provenance verification pending.**
 
 The existing Python script is a starter forecasting workflow, not a recreation of every model in the results chapter. To reach a production-quality research repository, add:
 
@@ -76,4 +92,4 @@ The existing Python script is a starter forecasting workflow, not a recreation o
 - Regime labels depend on model specification and should not be interpreted as causal labels.
 - Forecasts support planning; they do not demonstrate that any staffing or policy intervention will improve patient outcomes.
 
-See [the current forecast starter](forecast_template.py).
+See [the reproducible forecasting script](reproduce_nhs_emergency.py). The older generic workflow remains available as [forecast_template.py](forecast_template.py).
