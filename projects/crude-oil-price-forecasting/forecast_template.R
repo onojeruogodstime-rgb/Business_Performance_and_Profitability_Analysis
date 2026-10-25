@@ -74,7 +74,6 @@ train <- head(price_ts, length(price_ts) - n_test)
 test <- tail(price_ts, n_test)
 
 # Benchmarks and candidate methods are fit on training observations only.
-naive_fit <- naive(train)
 arima_fit <- auto.arima(train, seasonal = TRUE, stepwise = FALSE, approximation = FALSE)
 ets_fit <- ets(train)
 
