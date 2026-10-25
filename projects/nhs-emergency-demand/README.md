@@ -1,38 +1,79 @@
 # Stochastic Analysis of NHS Emergency Demand
 
-**Domain:** healthcare analytics · time-series forecasting · uncertainty
+**Project type:** Healthcare analytics research  
+**Domain:** NHS operations · count-data modelling · regime analysis · time-series forecasting  
+**Tools:** Statistical modelling · time-series diagnostics · out-of-sample evaluation
+
+[← Portfolio index](../../PORTFOLIO_INDEX.md)
+
+## Executive summary
+
+This project studies monthly NHS emergency activity as a time series, with a focus on demand variability, disruption, and the practical limits of forecasting. The supplied results chapter describes **228 monthly observations from April 2007 to March 2026** for a series labelled `APC_Emergency`, with a pre-specified training period of April 2007–March 2023 (192 observations) and evaluation period of April 2023–March 2026 (36 observations).
+
+The analysis compares Poisson and Negative Binomial count models, two-state Markov-switching specifications, and time-series forecasting benchmarks. The results chapter reports that the Poisson model is inadequate after trend, month effects and month length are accounted for; the Negative Binomial improves fit substantially. Regime structure is supported, but its interpretation depends on the specification. Importantly, the regime-informed forecast **did not improve accuracy** over the SARIMA benchmark on the pre-specified evaluation window.
+
+These are **findings reported in the supplied analysis chapter**. The data extract, full analysis code and outputs have not yet been independently reproduced in this repository. The exact source table and reuse terms must be documented before the project is presented as fully reproducible.
 
 ## Research question
-How can historical aggregate NHS emergency-care activity be analysed to characterise demand variability and evaluate forecasts that may support operational planning?
 
-## Objectives
-- Describe trend, seasonality, calendar effects and unusually high-demand periods.
-- Compare simple baselines with suitable statistical forecasting models.
-- Evaluate forecasts using chronological holdout or rolling-origin testing.
-- Report uncertainty and discuss implications for planning.
-- Document changes in reporting, service definitions and external shocks that can limit model reliability.
+Can count-data and stochastic-regime methods better characterise monthly NHS emergency demand, and do regime signals improve forecasts beyond standard time-series benchmarks?
 
-## Data plan
-Prefer an official, openly accessible aggregate source such as NHS England A&E Attendances and Emergency Admissions statistics. Record the exact table, series, geography, frequency, units, publication date, download URL and permitted-use terms. Do not upload patient-level or confidential records.
+## Data and evaluation design
 
-**Exact data source and period:** to be recorded after selection and verification.
+- **Series label:** `APC_Emergency` (as named in the supplied results chapter).
+- **Reported coverage:** April 2007–March 2026; 228 consecutive monthly observations.
+- **Reported split:** April 2007–March 2023 training; April 2023–March 2026 test.
+- **Calendar adjustment:** the report describes an offset for days per month in count models and a days-adjusted series for forecasting.
+- **Data provenance:** exact source table, download location, revision date and reuse licence remain to be recorded.
 
-## Proposed methods
-Python, pandas, statsmodels, scikit-learn and Matplotlib. Begin with naïve and seasonal-naïve baselines; compare moving-average or exponential-smoothing methods and SARIMA where the series supports them. Use MAE, RMSE and MASE where appropriate, plus prediction-interval coverage and width. Do not assume a more complex AI model is better without evaluation evidence.
+No patient-level data should be committed. Use only public, permitted aggregate data and retain source metadata.
 
-## Workflow
-1. Acquire permitted aggregate data and preserve metadata.
-2. Validate dates, missing periods, revisions and definitions.
-3. Explore the series and seasonal structure.
-4. Split chronologically into training and test periods.
-5. Fit baselines and candidate models using training data only.
-6. Compare errors, inspect residuals and assess uncertainty.
-7. Present forecasts with limitations and operational interpretation.
+## Reported findings
 
-## Status
-This is a research plan and starter project, **not a claim that a final forecast has been fitted or validated**. Add a cited dataset, executed notebook, charts, model-comparison table and verified findings after completing the workflow.
+| Analysis | Reported result | Interpretation |
+|---|---|---|
+| Descriptive analysis | Mean monthly activity: 481,909; standard deviation: 51,693 | Long-run trend and disruption contribute to variability |
+| Structural disruption | Minimum 330,244 in April 2020; maximum 575,744 in May 2024 | The series includes a sharp 2020 decline and later recovery |
+| Count model comparison | Poisson Pearson dispersion reported as 1,330.6; Negative Binomial dispersion 0.98 | Poisson variance assumptions were not adequate for the specified conditional mean |
+| Negative Binomial fit | Reported AIC 5,291.5 versus 299,295 for Poisson | Substantially better fit by the reported information criterion; serial correlation remains a limitation |
+| Regime modelling | Two-state models preferred by AIC/BIC, but the state interpretation varies by specification | Regimes are plausible, but not uniquely identified |
+| Forecast comparison | SARIMA(2,1,1)(0,1,1)[12] was competitive at short horizons; seasonal-naïve was preferable at 12 months | Model complexity should be judged by horizon-specific test performance |
+| Regime-informed forecasts | No improvement on the pre-specified test window; slightly weaker performance on the shock-containing sensitivity window | Regime detection did not translate into forecast gains in these reported tests |
 
-## Ethics and limitations
-Forecast accuracy does not prove that a staffing or capacity intervention will improve patient outcomes. Use aggregate public statistics unless explicit approvals authorise another source.
+*All values above are transcribed from the supplied results chapter and are not independently verified in this repository. They should be rechecked against the source data and executable code before external use.*
 
-See [portfolio index](../../PORTFOLIO_INDEX.md).
+## Methods
+
+1. Validate date continuity, missing values, units and series definition.
+2. Explore trend, seasonality, calendar effects and the 2020 disruption.
+3. Compare Poisson and Negative Binomial models using diagnostics, not AIC alone.
+4. Fit alternative two-state Markov-switching specifications and report sensitivity to variance assumptions.
+5. Compare naïve, seasonal-naïve and SARIMA benchmarks on the same chronological holdout.
+6. Assess errors by forecast horizon, residual autocorrelation and interval coverage.
+7. Distinguish statistical coincidence from causal attribution; a detected regime does not establish why it occurred.
+
+## Why this matters operationally
+
+For healthcare planning, a forecast is useful only when its horizon, uncertainty and failure modes are clear. The reported results caution against assuming that a more elaborate regime model will outperform a well-specified baseline. Short-term planning and annual capacity decisions may require different benchmarks.
+
+## Reproducibility status
+
+**Status: analysis documented; independent reproduction pending.**
+
+The existing Python script is a starter forecasting workflow, not a recreation of every model in the results chapter. To reach a production-quality research repository, add:
+
+- exact official data citation and licence;
+- a clean data dictionary and extraction steps;
+- versioned environment and runnable scripts/notebook;
+- tests for date coverage, missingness and calendar adjustment;
+- reproducible model tables and plots generated from code;
+- a README update after outputs have been re-run and checked.
+
+## Limitations and responsible use
+
+- Aggregate monthly counts do not capture local variation, patient acuity, staffing, or hospital-level constraints.
+- Serial correlation can violate independence assumptions in count regressions.
+- Regime labels depend on model specification and should not be interpreted as causal labels.
+- Forecasts support planning; they do not demonstrate that any staffing or policy intervention will improve patient outcomes.
+
+See [the current forecast starter](forecast_template.py).
