@@ -95,6 +95,15 @@ Values are shown in the dataset's units; the dataset currency and business conte
 - Add a clearly documented dashboard only when the dashboard file or reproducible build steps are available.
 - Compare forecasting or predictive approaches using an explicit validation design if extending the project beyond descriptive analytics.
 
+
+---
+
+## Related analytics portfolio projects
+
+This repository also contains a portfolio index and separate project pages for healthcare demand forecasting, crude-oil time-series forecasting, smart-home energy analysis, NHS systems thinking and the CareFlow AI concept. Each page identifies its current status and distinguishes planned work from verified results.
+
+**[Browse the full portfolio index](PORTFOLIO_INDEX.md)**
+
 ## Author
 
 **Godstime Onojeruo**  
