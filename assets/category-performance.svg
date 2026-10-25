@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="430" viewBox="0 0 1000 430" role="img" aria-labelledby="title desc">
+<title id="title">Revenue and profit by product category</title><desc id="desc">Horizontal bar chart comparing revenue and profit for Bikes, Accessories and Clothing.</desc>
+<rect width="1000" height="430" rx="18" fill="#ffffff"/><text x="56" y="52" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#12233f">Product category performance</text><text x="56" y="81" font-family="Arial,sans-serif" font-size="15" fill="#5b6b82">Revenue and profit totals reported in the notebook</text>
+<g font-family="Arial,sans-serif" font-size="16" fill="#40516a"><text x="56" y="145">Bikes</text><text x="56" y="245">Accessories</text><text x="56" y="345">Clothing</text></g>
+<g fill="#e9eff7"><rect x="190" y="111" width="640" height="30" rx="5"/><rect x="190" y="211" width="640" height="30" rx="5"/><rect x="190" y="311" width="640" height="30" rx="5"/></g>
+<g fill="#2563eb"><rect x="190" y="111" width="640" height="30" rx="5"/><rect x="190" y="211" width="154.7" height="30" rx="5"/><rect x="190" y="311" width="86.3" height="30" rx="5"/></g>
+<g fill="#14b8a6"><rect x="190" y="149" width="258.5" height="16" rx="4"/><rect x="190" y="249" width="96.9" height="16" rx="4"/><rect x="190" y="349" width="34.7" height="16" rx="4"/></g>
+<g font-family="Arial,sans-serif" font-size="14" fill="#40516a"><text x="845" y="131">68.64m</text><text x="356" y="231">16.59m</text><text x="288" y="331">9.25m</text><text x="460" y="162">27.72m profit</text><text x="299" y="262">10.38m profit</text><text x="237" y="362">3.72m profit</text></g>
+<g font-family="Arial,sans-serif" font-size="14" fill="#40516a"><rect x="650" y="92" width="13" height="13" rx="3" fill="#2563eb"/><text x="670" y="103">Revenue</text><rect x="750" y="92" width="13" height="13" rx="3" fill="#14b8a6"/><text x="770" y="103">Profit</text></g>
+<text x="56" y="405" font-family="Arial,sans-serif" font-size="12" fill="#8190a5">Bar lengths are scaled to the highest category revenue; profit labels use the same dataset currency units.</text>
+</svg>
