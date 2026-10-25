@@ -10,7 +10,23 @@
 
 This project compares classical time-series approaches for quarterly crude-oil prices. The accompanying academic analysis describes daily prices aggregated to quarterly means from **Q4 2009 to Q3 2024**, with prices expressed in US dollars per barrel. It reports a first-difference ARIMA model and a comparison against exponential smoothing (ETS).
 
-The analysis report identifies **ARIMA(0,1,0)** as its preferred ARIMA specification. It reports a level-series Augmented Dickey–Fuller p-value of 0.5507 and a stable long-horizon point forecast near $88.62 per barrel. Its reported ARIMA and ETS error summaries are very close; ETS has a marginally lower reported RMSE, while the report argues ARIMA better represents the observed movement. These are **results transcribed from the submitted analysis, not independently reproduced results**. The source dataset, model-selection path, evaluation design and code still need to be checked before treating the figures as validated.
+The analysis report identifies **ARIMA(0,1,0)** as its preferred ARIMA specification and reports a forecast near $88.62 per barrel. The uploaded workbook is now available and has been run through a provisional reproduction pipeline. Because it mixes text dates with native Excel date cells, the date normalisation remains an explicit assumption and the reproduced metrics below must be treated as provisional until the original provider/date convention and exact oil benchmark are confirmed.
+
+## Provisional reproduction from the uploaded workbook
+
+The workbook contains 3,404 rows, 2 missing prices, and 1,329 native Excel date cells mixed with 2,075 text date cells. A provisional rule parses text dates as month-first and swaps month/day in ambiguous native date cells. This rule is consistent with the report's stated broad date coverage, but it must be checked against the original source before the analysis is treated as final. Duplicate dates are averaged; the one-observation 2024 Q3 is excluded from model fitting and evaluation.
+
+The current comparison uses 59 quarterly means from Q4 2009 to Q2 2024 and the last 12 complete quarters as a chronological holdout:
+
+| Model | MAE | RMSE | MAPE | MASE |
+|---|---:|---:|---:|---:|
+| Last-quarter naïve | 21.741 | 24.953 | 22.75% | 2.783 |
+| ARIMA(0,1,0) with drift | 22.856 | 25.893 | 24.01% | 2.926 |
+| ETS additive trend | 22.856 | 25.893 | 24.01% | 2.926 |
+
+These results differ materially from the report's error summaries because the current comparison uses an explicit 12-quarter holdout and a naïve benchmark. Four quarters have fewer than 40 daily observations, including Q2 2010 (17 observations), so coverage and date parsing require further source-level validation. Do not claim that the report's original results have been reproduced yet.
+
+Run `python reproduce_oil_workbook.py` after placing the workbook locally at `data/BSOM096_CrudeOilPrice.xlsx`. The script writes the quarterly series, holdout forecasts, metrics, audit summary and SVG charts to `outputs/`. The workbook itself is not committed to the public repository.
 
 ## Business question
 
@@ -44,7 +60,7 @@ The differences are extremely small. A recruiter-facing interpretation should th
 
 The underlying dataset was described in the report as material supplied for a university assessment. Its redistribution rights have **not** been confirmed, so raw data and the submitted report are not included here. Before publication, record the original data provider, exact series/benchmark, download URL, licence, units, aggregation method and missing-value policy.
 
-The R script is a reproducible workflow template and requires a permitted input file at `data/crude_oil_prices_daily.csv` with columns `date` and `price`. It must be run against the documented source data before its outputs can be considered verified.
+The R script remains a generic CSV-based workflow. The new Python workbook pipeline reproduces a provisional comparison directly from the supplied workbook, with the date policy and coverage issues disclosed. Neither workflow should be described as fully source-verified until the benchmark, provider, date convention and reuse terms are confirmed.
 
 ## Limitations
 
@@ -61,4 +77,4 @@ The R script is a reproducible workflow template and requires a permitted input 
 - Add rolling-origin evaluation and compare results across evaluation windows.
 - Publish only verified metrics and appropriately licensed data/figures.
 
-See [the R analysis script](forecast_template.R).
+See the [provisional workbook reproduction script](reproduce_oil_workbook.py) and the [R CSV workflow](forecast_template.R).
