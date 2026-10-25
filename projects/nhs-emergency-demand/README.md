@@ -20,11 +20,11 @@ Can count-data and stochastic-regime methods better characterise monthly NHS eme
 
 ## Data and evaluation design
 
-- **Series label:** `APC_Emergency` (as named in the supplied results chapter).
+- **Series label:** `APC_Emergency` (as named in the supplied extract). Interpret this as emergency admissions activity within Admitted Patient Care (APC), not as a count of all emergency-department attendances.
 - **Reported coverage:** April 2007–March 2026; 228 consecutive monthly observations.
 - **Reported split:** April 2007–March 2023 training; April 2023–March 2026 test.
 - **Calendar adjustment:** the report describes an offset for days per month in count models and a days-adjusted series for forecasting.
-- **Data provenance:** exact source table, download location, revision date and reuse licence remain to be recorded.
+- **Likely official source:** [NHS England provisional monthly HES summary data](https://www.data.gov.uk/dataset/c914f943-98d1-4dee-aba5-c40a7d08eefa/provisional-monthly-hospital-episode-statistics-for-admitted-patient-care-outpatient-and-accident-and-emergency). The data.gov.uk catalogue describes monthly summary CSVs from April 2007 and lists the Open Government Licence. Confirm the exact source file/version and extraction date against the uploaded copy before final publication. NHS England also notes that the historical HES A&E component was replaced by the Emergency Care Data Set from April 2020, so this `APC_Emergency` series must not be described as total A&E attendances.
 
 No patient-level data should be committed. Use only public, permitted aggregate data and retain source metadata.
 
