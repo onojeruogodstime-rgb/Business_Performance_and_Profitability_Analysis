@@ -27,7 +27,7 @@ def score(actual: pd.Series, predicted: pd.Series, training: pd.Series) -> dict:
     predicted = np.asarray(predicted, dtype=float)
     mae = mean_absolute_error(actual, predicted)
     rmse = mean_squared_error(actual, predicted) ** 0.5
-    seasonal_scale = np.mean(np.abs(training[12:].to_numpy() - training[:-12].to_numpy()))
+    seasonal_scale = np.mean(np.abs(training.iloc[12:].to_numpy() - training.iloc[:-12].to_numpy()))
     mase = mae / seasonal_scale if seasonal_scale > 0 else np.nan
     return {"MAE": mae, "RMSE": rmse, "MASE": mase}
 
